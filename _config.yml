@@ -105,6 +105,8 @@ pagination_dir: page
 # 包含/排除文件
 ## include:/exclude: 选项仅适用于'source/'文件夹
 include:
+  head:
+    - '<meta name="google-site-verification" content="nQmut9voFbnRFTXY1AVgB3gAqwDLqFnugLb6Su8xDgo" />'
 exclude:
 ignore:
 
