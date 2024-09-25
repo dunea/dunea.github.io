@@ -1,2 +1,90 @@
-meta:
-  google_site_verification: "nQmut9voFbnRFTXY1AVgB3gAqwDLqFnugLb6Su8xDgo"
+# ===============
+# Header
+# ===============
+# Navigation menu
+menu:
+  Home: /
+  Archives: /archives
+# RSS link
+rss: /atom.xml
+# Path of title banner image of page top
+banner: "images/banner.jpg"
+# Subtitle of page top
+subtitle:
+# 带有图标的头部链接，指定的链接将出现在页面的右上角
+# 每个名称必须对应Fork Awesome的图标名称
+# https://forkaweso.me/Fork-Awesome/icons/
+links:
+  #  github: https://github.com/your_github_account
+  #  twitter: https://twitter.com/your_twitter_account
+  telegram: https://t.me/nuoyea
+
+# ===============
+# Content
+# ===============
+# "Read More" link at the bottom of excerpted articles. `false` to hide the link.
+excerpt_link: Read More
+# 启用fancybox
+fancybox: true
+
+# ===============
+# Footer
+# ===============
+# Display copyright notice in footer. Please see https://creativecommons.org/choose/ and https://choosealicense.com/
+# You can use html like below.
+# copyright: |-
+#   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></br>
+#   All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a></br>
+copyright:
+
+# ===============
+# Sidebar
+# ===============
+# Sidebar style. You can choose `left`, `right`, `bottom` or `false`.
+sidebar: right
+# Widgets displaying in sidebar
+widgets:
+  - category
+  - tag
+  - tagcloud
+  - archive
+  - recent_posts
+
+# ===============
+# 小部件行为
+# ===============
+archive_type: "monthly"
+show_count: false
+# How many posts display in Home page.
+recent_posts_limits: 5
+
+# ===============
+# 杂项
+# ===============
+# Google Analytics ID
+google_analytics:
+gauges_analytics:
+# Favicon path
+favicon: /favicon.png
+# Twitter ID
+twitter:
+fb_admins:
+fb_app_id:
+
+# ===============
+# Comment system
+# ===============
+# Disqus comment system.
+disqus_shortname:
+# valine comment system. https://valine.js.org
+valine:
+  enable: false # if you want use valine,please set this value is true
+  appId: # leancloud application app id
+  appKey: # leancloud application app key
+  notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
+  verify: false # valine verify code (true/false)
+  pageSize: 10 # comment list page size
+  avatar: mm # gravatar style https://valine.js.org/#/avatar
+  lang: zh-cn # i18n: zh-cn/en
+  placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
+  guest_info: nick,mail,link #valine comment header info
