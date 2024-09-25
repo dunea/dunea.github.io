@@ -87,8 +87,6 @@ tag_map:
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
-meta:
-  google_site_verification: "nQmut9voFbnRFTXY1AVgB3gAqwDLqFnugLb6Su8xDgo"
 
 # 日期/时间格式
 ## Hexo 使用 Moment.js 解析和显示日期
