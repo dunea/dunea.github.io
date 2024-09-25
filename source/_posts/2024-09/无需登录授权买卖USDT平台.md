@@ -57,12 +57,5 @@ tags:
 3. Vue、React前端开发能力。
 4. 有推广渠道。
 
-符合任意一个条件都可以联系我。
-
-```
-有兴趣的可以联系我：
-
-telegram：[@nuoyea](https://t.me/nuoyea)
-```
-
+符合任意一个条件都可以联系我。telegram：[@nuoyea](https://t.me/nuoyea)
 
