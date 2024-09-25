@@ -6,7 +6,6 @@
 title: 陈序员
 subtitle: "一个程序员界的点子王"
 description: "陈序员，程序员界点子王，喜欢研究各种技术，喜欢研究各种点子，喜欢研究各种赚钱方法。"
-google-site-verification: "nQmut9voFbnRFTXY1AVgB3gAqwDLqFnugLb6Su8xDgo"
 keywords:
   - 陈序员
   - 陈序员的博客
@@ -88,10 +87,11 @@ tag_map:
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
+meta_google_site_verification: "nQmut9voFbnRFTXY1AVgB3gAqwDLqFnugLb6Su8xDgo"
 
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
+# 日期/时间格式
+## Hexo 使用 Moment.js 解析和显示日期
+## 您可以根据定义的格式自定义日期格式
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
