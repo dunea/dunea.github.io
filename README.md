@@ -8,7 +8,7 @@
 
 一个基于hexo搭建的博客，使用的是next主题，基于nodejs，使用的是markdown格式。
 
-进入我的博客：[陈序员](https://dunea.github.io)
+进入我的博客：[dunea.github.io](https://dunea.github.io)
 
 ## 联系方式
 
