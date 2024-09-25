@@ -84,6 +84,14 @@ category_map:
   "区块链": blockchain
 
 tag_map:
+  "Golang": golang
+  "Python": python
+  "JavaScript": javascript
+  "TypeScript": typescript
+  "Vue": vue
+  "React": react
+  "Web3": web3
+  "区块链": blockchain
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
