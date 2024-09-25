@@ -2,9 +2,7 @@
 title: tailwindcss的使用体验，真香！！！
 date: 2024-09-26 04:54:02
 categories:
-  - 技术
-  - 编程
-  - 前端
+  - 随便写点
 tags:
   - tailwindcss
   - 使用体验

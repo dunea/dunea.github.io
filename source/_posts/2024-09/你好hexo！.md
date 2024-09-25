@@ -2,7 +2,7 @@
 title: 你好hexo！如何快捷的搭建一个Github Pages离线博客？
 date: 2024-09-26 04:05:04
 categories:
-  - random-thoughts
+  - 随便写点
 tags:
   - hexo
   - 博客

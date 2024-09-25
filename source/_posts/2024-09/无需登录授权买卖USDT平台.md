@@ -2,7 +2,7 @@
 title: 区块链C2C无需登录授权，快捷买卖USDT、TRX平台
 date: 2024-09-26 04:04:30
 categories:
-  - yesterdays-thoughts
+  - 昨天的想法
 tags:
   - 区块链
   - 区块链C2C
