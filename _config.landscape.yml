@@ -65,7 +65,7 @@ recent_posts_limits: 5
 google_analytics:
 gauges_analytics:
 # Favicon path
-favicon: /favicon.png
+favicon: /favicon.jpg
 # Twitter ID
 twitter:
 fb_admins:
