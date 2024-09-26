@@ -3,7 +3,7 @@ title: django中关于serializers的用法用途
 date: 2024-09-26 07:17:08
 categories:
     - Python
-    - django
+    - Django
 tags:
     - django
     - serializers
