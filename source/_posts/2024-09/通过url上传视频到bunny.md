@@ -7,14 +7,8 @@ tags:
     - 后端
     - Python
     - 云服务
-    - 视频上传
-    - 视频库
-    - 视频库上传
-    - 视频库上传视频
-    - 视频上传到视频库
-    - 视频上传到bunny
-    - 视频上传到bunny stream
-    - 视频上传到bunny stream视频库
+    - BunnyCDN
+    - Bunny Stream
 ---
 
 

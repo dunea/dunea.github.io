@@ -14,7 +14,7 @@ tags:
 
 
 
-# Django 使用 Cloudflare Image 上传图片
+
 
 在本教程中，我们将介绍如何在 Django 项目中使用 Cloudflare Image API 实现图片上传功能。
 
