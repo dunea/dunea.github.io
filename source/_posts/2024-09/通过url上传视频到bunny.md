@@ -38,7 +38,7 @@ BUNNY_API_KEY = 'your_api_key'
 
 在你的 Django 项目中创建一个新的文件 `bunny_utils.py`，并添加以下代码：
 
-```python:bunny_utils.py
+```python
 import requests
 from django.conf import settings
 from .exceptions import BadGateway  # 假设你有一个自定义的异常类
@@ -78,7 +78,7 @@ def _bunny_use_url_upload(video_url: str) -> BunnyUploadResult:
 
 在同一个文件 `bunny_utils.py` 中，添加以下代码：
 
-```python:bunny_utils.py
+```python
 import requests
 from django.conf import settings
 from .exceptions import BadGateway  # 假设你有一个自定义的异常类
@@ -120,7 +120,7 @@ def _bunny_stream_transcode_info(video_id: str) -> BunnyTranscodeInfo:
 
 在你的视图中调用这些函数：
 
-```python:views.py
+```python
 from django.http import JsonResponse
 from .bunny_utils import _bunny_use_url_upload, _bunny_stream_transcode_info
 
