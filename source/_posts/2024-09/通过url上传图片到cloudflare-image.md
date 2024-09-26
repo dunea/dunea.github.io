@@ -43,7 +43,7 @@ CF_API_TOKEN = 'your_cloudflare_api_token'
 
 在你的 Django 项目中创建一个新的文件 `cloudflare_utils.py`，并添加以下代码：
 
-```python:cloudflare_utils.py
+```python
 import requests
 from django.conf import settings
 from .exceptions import BadGateway  # 假设你有一个自定义的异常类
@@ -87,7 +87,7 @@ def _cf_image_use_url_upload(image_url: str) -> CloudflareImageUploadResult:
 
 在你的 Django 项目中创建一个新的文件 `models.py`，并添加以下代码：
 
-```python:models.py
+```python
 from django.db import models
 
 class CloudflareImageUploadResult(models.Model):
@@ -100,7 +100,7 @@ class CloudflareImageUploadResult(models.Model):
 
 在你的 Django 项目中创建一个新的文件 `exceptions.py`，并添加以下代码：
 
-```python:exceptions.py
+```python
 from rest_framework.exceptions import APIException
 
 class BadGateway(APIException):
@@ -114,7 +114,7 @@ class BadGateway(APIException):
 
 在你的视图中调用这些函数：
 
-```python:views.py
+```python
 from django.http import JsonResponse
 from .cloudflare_utils import _cf_image_use_url_upload
 
