@@ -24,7 +24,7 @@ tags:
 
 ```bash
 pip install requests
-````
+```
 
 
 ## 2. 配置 Django 项目
