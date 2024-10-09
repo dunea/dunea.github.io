@@ -1,5 +1,5 @@
 ---
-title: tailwindcss的js屏幕断点
+title: 如何在js/ts中使用tailwindcss的屏幕断点【附带代码】
 date: 2024-10-09 23:51:19
 categories:
     - WEB
