@@ -18,6 +18,8 @@ tags:
 
 在本教程中，我们将介绍如何在 Django 项目中使用 Cloudflare Image API 实现图片上传功能。
 
+<!-- more -->
+
 ## 1. 安装依赖
 
 首先，确保你已经安装了 `requests` 库：

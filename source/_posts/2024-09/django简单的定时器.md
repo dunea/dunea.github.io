@@ -21,6 +21,10 @@ tags:
 
 在 Django 中实现定时任务可以使用 `Celery` 或 `APScheduler` 等库。本文将介绍如何使用 `APScheduler` 在 Django 中实现简单的定时器功能。
 
+<!-- more -->
+
+<!-- more -->
+
 ## 1. 安装 APScheduler
 
 首先，安装 `APScheduler`：

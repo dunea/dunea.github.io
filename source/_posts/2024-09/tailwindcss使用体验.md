@@ -12,6 +12,8 @@ tags:
 
 最近在写一个博客，想使用一下`tailwindcss`，所以就有了这篇文章。
 
+<!-- more -->
+
 ## 安装
 
 安装`tailwindcss`，我这里就不在赘述了，直接看[官网](https://tailwindcss.com/docs/installation)。

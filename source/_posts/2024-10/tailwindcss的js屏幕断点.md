@@ -12,6 +12,8 @@ tags:
 
 在ts项目中直接导入 `../../tailwind.config.js` 可能会报错找不到类型，直接使用 `// @ts-ignore` 忽略即可。
 
+<!-- more -->
+
 ```js
 import { useEffect, useState } from "react";
 import resolveConfig from "tailwindcss/resolveConfig";

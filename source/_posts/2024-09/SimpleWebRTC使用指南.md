@@ -16,6 +16,8 @@ tags:
 
 SimpleWebRTC 是一个基于 WebRTC 的 JavaScript 库，旨在简化实时通信的实现。本文将介绍如何使用 SimpleWebRTC 实现 P2P 文件传输。
 
+<!-- more -->
+
 ## 1. 环境准备
 
 ### 1.1 引入 SimpleWebRTC
