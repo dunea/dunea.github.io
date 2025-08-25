@@ -2,8 +2,7 @@
 title: Telegram云控项目开发进度
 date: 2025-08-25 17:11:21
 categories:
-    - Telegram
-    - 开发进度
+    - [Telegram, 开发进度]
 tags:
     - Telegram云控
     - TG云控
