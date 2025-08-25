@@ -18,3 +18,22 @@
 
 - [hexo](https://hexo.io/)
 - [next](https://theme-next.iissnan.com/)
+
+## 常用命令
+
+```shell
+# 新建文章
+hexo new [layout] <title>
+
+# 指定路径
+hexo new page --path about/me "About me"
+
+# 生成静态文件
+hexo generate
+
+# 清理缓存
+hexo clean
+
+# 列出所有路由
+hexo list <type>
+```
