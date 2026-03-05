@@ -22,8 +22,11 @@
 ## 常用命令
 
 ```shell
-# 新建文章
+# 新建文章，标题如果包含空格请使用引号包裹
 hexo new [layout] <title>
+hexo new post <title> # 帖子 source/_posts
+hexo new page <title> # 页面 source
+hexo new draft <title> # 草稿 source/_drafts
 
 # 指定路径
 hexo new page --path about/me "About me"
