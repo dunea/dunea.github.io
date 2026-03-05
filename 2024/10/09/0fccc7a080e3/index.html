@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  
+  <title>如何在js/ts中使用tailwindcss的屏幕断点【附带代码】 | 陈序员</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="js &#x2F; ts代码在ts项目中直接导入 ..&#x2F;..&#x2F;tailwind.config.js 可能会报错找不到类型，直接使用 &#x2F;&#x2F; @ts-ignore 忽略即可。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在js&#x2F;ts中使用tailwindcss的屏幕断点【附带代码】">
+<meta property="og:url" content="https://dunea.github.io/2024/10/09/0fccc7a080e3/index.html">
+<meta property="og:site_name" content="陈序员">
+<meta property="og:description" content="js &#x2F; ts代码在ts项目中直接导入 ..&#x2F;..&#x2F;tailwind.config.js 可能会报错找不到类型，直接使用 &#x2F;&#x2F; @ts-ignore 忽略即可。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-09T15:51:19.000Z">
+<meta property="article:modified_time" content="2025-08-25T08:49:31.420Z">
+<meta property="article:author" content="Dunea">
+<meta property="article:tag" content="tailwindcss">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="陈序员" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.jpg">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css">
+
+  
+<meta name="generator" content="Hexo 8.1.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">陈序员</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个程序员界的点子王</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          
+            <a class="nav-icon" target="_blank" rel="noopener" href="https://t.me/nuoyea"><span class="fa fa-telegram"></span></a>
+          
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://dunea.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-tailwindcss的js屏幕断点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/09/0fccc7a080e3/" class="article-date">
+  <time class="dt-published" datetime="2024-10-09T15:51:19.000Z" itemprop="datePublished">2024-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WEB/">WEB</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      如何在js/ts中使用tailwindcss的屏幕断点【附带代码】
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="js-ts代码"><a href="#js-ts代码" class="headerlink" title="js &#x2F; ts代码"></a>js &#x2F; ts代码</h3><p>在ts项目中直接导入 <code>../../tailwind.config.js</code> 可能会报错找不到类型，直接使用 <code>// @ts-ignore</code> 忽略即可。</p>
+<span id="more"></span>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> resolveConfig <span class="keyword">from</span> <span class="string">&quot;tailwindcss/resolveConfig&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> tailwindConfig <span class="keyword">from</span> <span class="string">&quot;../../tailwind.config.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Display</span> &#123;</span><br><span class="line">  <span class="attr">xs</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">sm</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">md</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">lg</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">xl</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">xxl</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">smAndDown</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">smAndUp</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">mdAndDown</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">mdAndUp</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">lgAndDown</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">lgAndUp</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">xlAndDown</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">xlAndUp</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">xxlAndDown</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line">  <span class="attr">xxlAndUp</span>: boolean | <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">width: number</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">initVariable</span>();</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">calcVariable</span>(width);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">initVariable</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">sm</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">md</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">lg</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xl</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xxl</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">smAndDown</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">smAndUp</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">mdAndDown</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">mdAndUp</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">lgAndDown</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">lgAndUp</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xlAndDown</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xlAndUp</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xxlAndDown</span> =</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xxlAndUp</span> =</span><br><span class="line">      <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">calcVariable</span>(<span class="params">width: number</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> fullConfig = <span class="title function_">resolveConfig</span>(tailwindConfig)</span><br><span class="line">    <span class="keyword">const</span> breakpoints = &#123;</span><br><span class="line">      <span class="attr">sm</span>: <span class="built_in">parseInt</span>(fullConfig.<span class="property">theme</span>.<span class="property">screens</span>.<span class="property">sm</span>),</span><br><span class="line">      <span class="attr">md</span>: <span class="built_in">parseInt</span>(fullConfig.<span class="property">theme</span>.<span class="property">screens</span>.<span class="property">md</span>),</span><br><span class="line">      <span class="attr">lg</span>: <span class="built_in">parseInt</span>(fullConfig.<span class="property">theme</span>.<span class="property">screens</span>.<span class="property">lg</span>),</span><br><span class="line">      <span class="attr">xl</span>: <span class="built_in">parseInt</span>(fullConfig.<span class="property">theme</span>.<span class="property">screens</span>.<span class="property">xl</span>),</span><br><span class="line">      <span class="attr">xxl</span>: <span class="built_in">parseInt</span>(fullConfig.<span class="property">theme</span>.<span class="property">screens</span>[<span class="string">&quot;2xl&quot;</span>]),</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (width &lt; breakpoints.<span class="property">sm</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xs</span> = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (width &lt; breakpoints.<span class="property">md</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">sm</span> = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (width &lt; breakpoints.<span class="property">lg</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">md</span> = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (width &lt; breakpoints.<span class="property">xl</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">lg</span> = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (width &lt; breakpoints.<span class="property">xxl</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xl</span> = <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">xxl</span> = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">smAndDown</span> = <span class="variable language_">this</span>.<span class="property">xs</span> || <span class="variable language_">this</span>.<span class="property">sm</span>; <span class="comment">// &lt; 768</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">smAndUp</span> = <span class="variable language_">this</span>.<span class="property">sm</span> || <span class="variable language_">this</span>.<span class="property">md</span> || <span class="variable language_">this</span>.<span class="property">lg</span> || <span class="variable language_">this</span>.<span class="property">xl</span> || <span class="variable language_">this</span>.<span class="property">xxl</span>; <span class="comment">// &gt; 640</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">mdAndDown</span> = <span class="variable language_">this</span>.<span class="property">xs</span> || <span class="variable language_">this</span>.<span class="property">sm</span> || <span class="variable language_">this</span>.<span class="property">md</span>; <span class="comment">// &lt; 1024</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">mdAndUp</span> = <span class="variable language_">this</span>.<span class="property">md</span> || <span class="variable language_">this</span>.<span class="property">lg</span> || <span class="variable language_">this</span>.<span class="property">xl</span> || <span class="variable language_">this</span>.<span class="property">xxl</span>; <span class="comment">// &gt; 768</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">lgAndDown</span> = <span class="variable language_">this</span>.<span class="property">xs</span> || <span class="variable language_">this</span>.<span class="property">sm</span> || <span class="variable language_">this</span>.<span class="property">md</span> || <span class="variable language_">this</span>.<span class="property">lg</span>; <span class="comment">// &lt; 1280</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">lgAndUp</span> = <span class="variable language_">this</span>.<span class="property">lg</span> || <span class="variable language_">this</span>.<span class="property">xl</span> || <span class="variable language_">this</span>.<span class="property">xxl</span>; <span class="comment">// &gt; 1024</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">xlAndDown</span> = <span class="variable language_">this</span>.<span class="property">xs</span> || <span class="variable language_">this</span>.<span class="property">sm</span> || <span class="variable language_">this</span>.<span class="property">md</span> || <span class="variable language_">this</span>.<span class="property">lg</span> || <span class="variable language_">this</span>.<span class="property">xl</span>; <span class="comment">// &lt; 1536</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">xlAndUp</span> = <span class="variable language_">this</span>.<span class="property">xl</span> || <span class="variable language_">this</span>.<span class="property">xxl</span>; <span class="comment">// &gt; 1280</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">xxlAndDown</span> = <span class="variable language_">this</span>.<span class="property">xs</span> || <span class="variable language_">this</span>.<span class="property">sm</span> || <span class="variable language_">this</span>.<span class="property">md</span> || <span class="variable language_">this</span>.<span class="property">lg</span> || <span class="variable language_">this</span>.<span class="property">xl</span>; <span class="comment">// &lt; 1536</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">xxlAndUp</span> = <span class="variable language_">this</span>.<span class="property">xxl</span>; <span class="comment">// &gt; 1536</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">useDisplay</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [display, setDisplay] = <span class="title function_">useState</span>(<span class="keyword">new</span> <span class="title class_">Display</span>(<span class="variable language_">window</span>.<span class="property">screen</span>.<span class="property">width</span>));</span><br><span class="line"></span><br><span class="line">  <span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">handleResize</span>(<span class="params">e: any</span>) &#123;</span><br><span class="line">      <span class="comment">// 可考虑防抖</span></span><br><span class="line">      <span class="title function_">setDisplay</span>(<span class="keyword">new</span> <span class="title class_">Display</span>(e?.<span class="property">target</span>.<span class="property">innerWidth</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;resize&quot;</span>, handleResize);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">window</span>.<span class="title function_">removeEventListener</span>(<span class="string">&quot;resize&quot;</span>, handleResize);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> display;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useDisplay;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> display = <span class="title function_">useDisplay</span>();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(display.<span class="property">sm</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这样使用，就可以在js &#x2F; ts中使用tailwindcss的屏幕断点了。</p>
+<p>功能参照的 VUETIFY 的 <code>useDisplay</code> 实现。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://vuetifyjs.com/zh-Hans/features/display-and-platform/#section-63a553e3">VUETIFY 的 useDisplay</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tailwindlabs/tailwindcss/blob/master/src/util/resolveConfig.js">tailwindcss 的 resolveConfig</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dunea.github.io/2024/10/09/0fccc7a080e3/" data-id="cuidLzwHsWK_rMluDCFWvQ9Qo" data-title="如何在js/ts中使用tailwindcss的屏幕断点【附带代码】" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/04/12/e312805792ad/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          telegram bot 机器人定制、合作（全产业链、低价、专业）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/09/30/68cef4088c6b/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">30秒告诉你什么是去中心化！节点全部下线整个网络就没了？维护者为所欲为？</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/Django/">Django</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringBoot/">SpringBoot</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Telegram/">Telegram</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Telegram/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/">开发进度</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/WEB/">WEB</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%91%E6%9C%8D%E5%8A%A1/">云服务</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/blockchain/">区块链</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/">开发进度</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/yesterdays-thoughts/">昨天的想法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/random-thoughts/">随便写点</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bsky/" rel="tag">Bsky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bunny-Stream/" rel="tag">Bunny Stream</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BunnyCDN/" rel="tag">BunnyCDN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloudflare/" rel="tag">Cloudflare</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloudflare-Image/" rel="tag">Cloudflare Image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS%E7%AD%BE%E5%90%8D/" rel="tag">IOS签名</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/P2P/" rel="tag">P2P</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RTC/" rel="tag">RTC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringDataJPA/" rel="tag">SpringDataJPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TG%E4%BA%91%E6%8E%A7/" rel="tag">TG云控</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Telegram%E4%BA%91%E6%8E%A7/" rel="tag">Telegram云控</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">actions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dunea/" rel="tag">dunea</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dunea%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="tag">dunea的博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-actions/" rel="tag">github actions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/i18n/" rel="tag">i18n</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/serializers/" rel="tag">serializers</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E4%B8%9A/" rel="tag">专业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91i18n/" rel="tag">云i18n</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%BC%80%E5%8F%91/" rel="tag">云开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/" rel="tag">云服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%A0%E8%BE%93/" rel="tag">传输</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%8E%E4%BB%B7/" rel="tag">低价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/" rel="tag">使用体验</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E6%8E%88%E6%9D%83%E5%8C%BA%E5%9D%97%E9%93%BETRX%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/" rel="tag">免授权区块链TRX交易平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E6%8E%88%E6%9D%83%E5%8C%BA%E5%9D%97%E9%93%BEUSDT%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/" rel="tag">免授权区块链USDT交易平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E6%B3%A8%E5%86%8C%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%B0%E5%8D%96/" rel="tag">免注册区块链买卖</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%8D%E7%99%BB%E5%BD%95%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%A4%E6%98%93/" rel="tag">免登录区块链交易</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E4%BA%A7%E4%B8%9A%E9%93%BE/" rel="tag">全产业链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blockchain/" rel="tag">区块链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BEC2C/" rel="tag">区块链C2C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BETRX/" rel="tag">区块链TRX</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BEUSDT/" rel="tag">区块链USDT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%B0%E5%8D%96%E5%B9%B3%E5%8F%B0/" rel="tag">区块链买卖平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/" rel="tag">区块链交易平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="tag">反序列化器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%88%E4%BD%9C/" rel="tag">合作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E5%88%B6/" rel="tag">定制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="tag">定时任务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" rel="tag">定时任务调度</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/" rel="tag">定时任务调度器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/" rel="tag">定时器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" rel="tag">序列化与反序列化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="tag">序列化器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="tag">序列化器与反序列化器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" rel="tag">文件传输</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">机器人</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B8%93%E4%B8%9A/" rel="tag">机器人专业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BD%8E%E4%BB%B7/" rel="tag">机器人低价</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%A8%E4%BA%A7%E4%B8%9A%E9%93%BE/" rel="tag">机器人全产业链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%90%88%E4%BD%9C/" rel="tag">机器人合作</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AE%9A%E5%88%B6/" rel="tag">机器人定制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%80%E5%8D%95django%E5%AE%9A%E6%97%B6%E5%99%A8/" rel="tag">简单django定时器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E6%83%85/" rel="tag">色情</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%B2%E6%83%85%E5%88%86%E7%B1%BB/" rel="tag">色情分类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%88%E5%BA%8F%E5%91%98/" rel="tag">陈序员</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%99%88%E5%BA%8F%E5%91%98%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="tag">陈序员的博客</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bsky/" style="font-size: 10px;">Bsky</a> <a href="/tags/Bunny-Stream/" style="font-size: 10px;">Bunny Stream</a> <a href="/tags/BunnyCDN/" style="font-size: 10px;">BunnyCDN</a> <a href="/tags/Cloudflare/" style="font-size: 10px;">Cloudflare</a> <a href="/tags/Cloudflare-Image/" style="font-size: 10px;">Cloudflare Image</a> <a href="/tags/IOS%E7%AD%BE%E5%90%8D/" style="font-size: 10px;">IOS签名</a> <a href="/tags/P2P/" style="font-size: 15px;">P2P</a> <a href="/tags/python/" style="font-size: 15px;">Python</a> <a href="/tags/RTC/" style="font-size: 10px;">RTC</a> <a href="/tags/SpringDataJPA/" style="font-size: 10px;">SpringDataJPA</a> <a href="/tags/TG%E4%BA%91%E6%8E%A7/" style="font-size: 10px;">TG云控</a> <a href="/tags/Telegram%E4%BA%91%E6%8E%A7/" style="font-size: 10px;">Telegram云控</a> <a href="/tags/actions/" style="font-size: 10px;">actions</a> <a href="/tags/django/" style="font-size: 15px;">django</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/dunea/" style="font-size: 10px;">dunea</a> <a href="/tags/dunea%E7%9A%84%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">dunea的博客</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/github-actions/" style="font-size: 10px;">github actions</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/i18n/" style="font-size: 10px;">i18n</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/serializers/" style="font-size: 10px;">serializers</a> <a href="/tags/tailwindcss/" style="font-size: 15px;">tailwindcss</a> <a href="/tags/%E4%B8%93%E4%B8%9A/" style="font-size: 10px;">专业</a> <a href="/tags/%E4%BA%91i18n/" style="font-size: 10px;">云i18n</a> <a href="/tags/%E4%BA%91%E5%BC%80%E5%8F%91/" style="font-size: 10px;">云开发</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/" style="font-size: 15px;">云服务</a> <a href="/tags/%E4%BC%A0%E8%BE%93/" style="font-size: 10px;">传输</a> <a href="/tags/%E4%BD%8E%E4%BB%B7/" style="font-size: 10px;">低价</a> <a href="/tags/%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/" style="font-size: 10px;">使用体验</a> <a href="/tags/%E5%85%8D%E6%8E%88%E6%9D%83%E5%8C%BA%E5%9D%97%E9%93%BETRX%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">免授权区块链TRX交易平台</a> <a href="/tags/%E5%85%8D%E6%8E%88%E6%9D%83%E5%8C%BA%E5%9D%97%E9%93%BEUSDT%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">免授权区块链USDT交易平台</a> <a href="/tags/%E5%85%8D%E6%B3%A8%E5%86%8C%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%B0%E5%8D%96/" style="font-size: 10px;">免注册区块链买卖</a> <a href="/tags/%E5%85%8D%E7%99%BB%E5%BD%95%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%A4%E6%98%93/" style="font-size: 10px;">免登录区块链交易</a> <a href="/tags/%E5%85%A8%E4%BA%A7%E4%B8%9A%E9%93%BE/" style="font-size: 10px;">全产业链</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/blockchain/" style="font-size: 15px;">区块链</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BEC2C/" style="font-size: 10px;">区块链C2C</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BETRX/" style="font-size: 10px;">区块链TRX</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BEUSDT/" style="font-size: 10px;">区块链USDT</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B9%B0%E5%8D%96%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">区块链买卖平台</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE%E4%BA%A4%E6%98%93%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">区块链交易平台</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">反序列化</a> <a href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" style="font-size: 10px;">反序列化器</a> <a href="/tags/%E5%90%88%E4%BD%9C/" style="font-size: 10px;">合作</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 20px;">后端</a> <a href="/tags/%E5%AE%9A%E5%88%B6/" style="font-size: 10px;">定制</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" style="font-size: 10px;">定时任务</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" style="font-size: 10px;">定时任务调度</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8/" style="font-size: 15px;">定时任务调度器</a> <a href="/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/" style="font-size: 10px;">定时器</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">序列化</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 10px;">序列化与反序列化</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" style="font-size: 10px;">序列化器</a> <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" style="font-size: 10px;">序列化器与反序列化器</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 10px;">教程</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93/" style="font-size: 10px;">文件传输</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 10px;">机器人</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%B8%93%E4%B8%9A/" style="font-size: 10px;">机器人专业</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E4%BD%8E%E4%BB%B7/" style="font-size: 10px;">机器人低价</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%85%A8%E4%BA%A7%E4%B8%9A%E9%93%BE/" style="font-size: 10px;">机器人全产业链</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%90%88%E4%BD%9C/" style="font-size: 10px;">机器人合作</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AE%9A%E5%88%B6/" style="font-size: 10px;">机器人定制</a> <a href="/tags/%E7%AE%80%E5%8D%95django%E5%AE%9A%E6%97%B6%E5%99%A8/" style="font-size: 10px;">简单django定时器</a> <a href="/tags/%E8%89%B2%E6%83%85/" style="font-size: 10px;">色情</a> <a href="/tags/%E8%89%B2%E6%83%85%E5%88%86%E7%B1%BB/" style="font-size: 10px;">色情分类</a> <a href="/tags/%E9%99%88%E5%BA%8F%E5%91%98/" style="font-size: 10px;">陈序员</a> <a href="/tags/%E9%99%88%E5%BA%8F%E5%91%98%E7%9A%84%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">陈序员的博客</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">九月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">八月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/09/10/4e6f9d0a4a2d/">Spring Data JPA 的 “方法名派生查询” 功能</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/27/ad7e05929f7e/">推特 &amp; 蓝天项目开发进度</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/25/d9dbfb211163/">色情的分类有哪些？</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/25/5797ca7cbc19/">Telegram云控项目开发进度</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/12/e312805792ad/">telegram bot 机器人定制、合作（全产业链、低价、专业）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Dunea<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
