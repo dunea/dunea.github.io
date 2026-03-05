@@ -129,4 +129,7 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ""
+  type: "git"
+  repo: "https://github.com/dunea/dunea.github.io.git" # https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  branch: "gh-pages" # default branch for deployment
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"
